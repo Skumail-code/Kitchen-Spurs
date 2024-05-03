@@ -19,7 +19,7 @@ This document provides instructions for setting up and understanding the feature
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/Skumail-code/Kitchen-Spurs
 
 2. **Install Composer Dependencies**
     ```bash
