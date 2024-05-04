@@ -10,7 +10,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 });
 
 
-//Login User API
+//Login User API 
 Route::post('login', [ApiLoginController::class, 'login']);
 
 //Get all Users 
@@ -33,7 +33,8 @@ Route::delete('/tasks/{taskId}', [TaskController::class, 'deleteTask']);
 Route::post('/task-users', [TaskUserController::class, 'store']);
 
 //Unassign user to a task by user and task id
-Route::delete('/task-users/{taskUserId}', [TaskUserController::class, 'unassignTaskUser']);
+Route::delete('/task-users/{taskId}/{userId}', [TaskController::class, 'unassignUserFromTask']);
+
 
 
 //Get all task user relations
@@ -49,6 +50,7 @@ Route::get('/tasks/by-date', [TaskController::class, 'getTasksByDate']);
 //Get tasks by assigned user
 Route::get('/tasks/by-assigned-user', [TaskController::class, 'getTasksByAssignedUser']);
 
+//See currently logged in users tasks
 Route::get('/tasks/assigned', [TaskController::class, 'getLoggedinUserTask']);
 
 

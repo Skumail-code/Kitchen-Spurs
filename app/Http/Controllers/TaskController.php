@@ -82,20 +82,21 @@ class TaskController extends Controller
         return response()->json(['message' => 'Users assigned successfully']);
     }
 
-   public function unassignUserFromTask($taskId, $userId) {
-    try {
-        // Find the task by ID
-        $task = Task::findOrFail($taskId);
+    public function unassignUserFromTask($taskId, $userId)
+    {
+        try {
+            // Find the task by ID
+            $task = Task::findOrFail($taskId);
 
-        // Detach the user from the task
-        $task->users()->detach($userId);
+            // Detach the user from the task
+            $task->users()->detach($userId);
 
-        return response()->json(['message' => 'User unassigned successfully']);
-    } catch (\Throwable $th) {
-        // Return an error response if an exception occurs
-        return response()->json(['message' => 'Failed to unassign user from task', 'error' => $th->getMessage()], 500);
+            return response()->json(['message' => 'User unassigned successfully']);
+        } catch (\Throwable $th) {
+            // Return an error response if an exception occurs
+            return response()->json(['message' => 'Failed to unassign user from task', 'error' => $th->getMessage()], 500);
+        }
     }
-}
 
     public function changeTaskStatus(Request $request, $taskId){
         $task = Task::findOrFail($taskId);
